@@ -23,6 +23,10 @@ export function Groups() {
     navigation.navigate('new')
   }
 
+  function handleOpenGroup(group: string) {
+    navigation.navigate('players', { group })
+  }
+
   async function fetchGroups() {
     try {
       const data = await getAllGroups();
@@ -50,6 +54,7 @@ export function Groups() {
         renderItem={({ item }) => (
           <GroupCard
             title={item}
+            onPress={() => handleOpenGroup(item)}
           />
         )
         }
