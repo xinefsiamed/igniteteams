@@ -5,7 +5,7 @@ import { Highlight } from "@components/Highlight";
 import { Button } from "@components/Button";
 import { Input } from "@components/Input";
 import { useState } from "react";
-import { groupCreate } from "@storage/group/groupCreate";
+import { createGroup } from "@storage/group/createGroup";
 import { Alert } from "react-native";
 import { AppError } from "@utils/AppError";
 
@@ -22,7 +22,7 @@ export function NewGroup() {
         return Alert.alert('Novo grupo', 'Informe o nome da turma.')
       }
 
-      await groupCreate(group)
+      await createGroup(group)
       navigation.navigate("players", { group })
     } catch (error) {
 
